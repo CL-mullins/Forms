@@ -99,7 +99,22 @@ def calculator():
 @app.route('/calculator_results')
 def calculator_results():
     """Shows the user the result of their calculation."""
-    pass
+    operation = request.args.get('operation')
+    first_number = request.args.get('operand1')
+    second_number = request.args.get('operand2')
+    if operation == "add":
+        result = (int(first_number) + int(second_number))
+        return f'You chose to {operation} {first_number} and {second_number}. Your result is: {result}'
+    if operation == "subtract":
+        result = (int(first_number) - int(second_number))
+        return f'You chose to {operation} {first_number} and {second_number}. Your result is: {result}'
+    if operation == "multiply":
+        result = (int(first_number) * int(second_number))
+        return f'You chose to {operation} {first_number} and {second_number}. Your result is: {result}'
+    if operation == "divide":
+        result = (int(first_number) / int(second_number))
+        return f'You chose to {operation} {first_number} and {second_number}. Your result is: {result}'
+
 
 
 HOROSCOPE_PERSONALITIES = {
